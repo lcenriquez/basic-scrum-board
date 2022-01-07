@@ -14,8 +14,15 @@
   padding: 0px;
 }
 
-p {
+p, .description {
   font-size: 12px;
+}
+
+input {
+  color: rgb(206, 206, 206);
+  background: none;
+  border: none;
+  margin: 5px;
 }
 
 small {

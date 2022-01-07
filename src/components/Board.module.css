@@ -12,3 +12,8 @@
   font-size: 18px;
   color:rgb(230, 230, 230)
 }
+
+.addTask {
+  text-align: center;
+  cursor: pointer;
+}
