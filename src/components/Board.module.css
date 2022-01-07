@@ -1,11 +1,14 @@
 .boardContainer {
   display: flex;
   flex-direction: column;
-  background-color: rgb(36, 36, 36);
+  background-color: rgb(27, 27, 27);
   border-radius: 5px;
-  max-width: 200px;
+  max-width: 230px;
 }
 
 .boardTitle {
+  padding: 10px;
   text-align: center;
+  font-size: 18px;
+  color:rgb(230, 230, 230)
 }

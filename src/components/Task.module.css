@@ -1,0 +1,23 @@
+.taskContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: rgb(46, 46, 46);
+  color: rgb(206, 206, 206);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0px;
+}
+
+p {
+  font-size: 12px;
+}
+
+small {
+  font-size: 10px;
+}
