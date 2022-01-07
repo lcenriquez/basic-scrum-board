@@ -1,11 +1,11 @@
 import style from './Board.module.css';
 import Task from './Task.tsx';
 
-export default function Board({ name }) {
+export default function Board({ name, tasks }) {
   return (
     <div className={style.boardContainer}>
       <h1 className={style.boardTitle}>{name}</h1>
-      <Task />
+      { tasks?.map((task, id) => <Task key={id} {...task} />) }
     </div>
   )
 };

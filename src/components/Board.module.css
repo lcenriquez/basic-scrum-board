@@ -3,6 +3,7 @@
   flex-direction: column;
   background-color: rgb(36, 36, 36);
   border-radius: 5px;
+  max-width: 200px;
 }
 
 .boardTitle {

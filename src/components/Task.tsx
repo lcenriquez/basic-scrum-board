@@ -1,9 +1,9 @@
-export default function Task() {
+export default function Task({ name, description, assignedTo }) {
   return (
     <div>
-      <h2>Title</h2>
-      <p>Something to do here...</p>
-      <small>Assigned to: someone</small>
+      <h2>{name}</h2>
+      <p>{description}</p>
+      <small>Assigned to: {assignedTo}</small>
     </div>
   )
 }
