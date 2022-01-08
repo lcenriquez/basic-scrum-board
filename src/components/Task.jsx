@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import style from './Task.module.css';
 
-export default function Task({ boardId, title, description, action, assignedTo, create }) {
+export default function Task({ boardId, id, title, description, action, assignedTo, create, deleteTask }) {
   const [ input, setInput ] = useState({boardId: boardId, title: '', description: ''});
 
   function handleChange(event) {
@@ -14,6 +14,7 @@ export default function Task({ boardId, title, description, action, assignedTo, 
   if(action === 'show') {
     return (
       <div className={style.taskContainer}>
+        <span className={style.x} onClick={() => deleteTask(id)}></span>
         <h2 className={style.title}>{title}</h2>
         <p>{description}</p>
         <small>Assigned to: {assignedTo}</small>

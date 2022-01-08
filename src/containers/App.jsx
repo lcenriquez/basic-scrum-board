@@ -2,13 +2,12 @@ import Nav from '../components/Nav';
 import Board from '../components/Board';
 import { useEffect, useState } from 'react';
 import { db } from '../firebase';
-import { collection, addDoc, query, onSnapshot } from 'firebase/firestore'
+import { collection, addDoc, deleteDoc, doc, query, onSnapshot } from 'firebase/firestore'
 import './App.css';
 
 function App() {
   const boardNames = ['Backlog', 'To do', 'In progress', 'Testing', 'Done'];
   const [tasks, setTasks] = useState([]);
-  let dismiss = false;
 
   document.body.classList.add('darkMode');
 
@@ -17,7 +16,7 @@ function App() {
     onSnapshot(q, (querySnapshot) => {
       let tasks = [];
       querySnapshot.forEach((doc) => {
-        tasks.push(doc.data());
+        tasks.push({id: doc.id, ...doc.data()});
       });
       setTasks(tasks);
     });
@@ -30,7 +29,11 @@ function App() {
       description,
       assignedTo: 'luis'
     });
-    dismiss = true;
+  }
+
+  async function deleteTask(id) {
+    alert(id);
+    await deleteDoc(doc(db, "tasks", id));
   }
 
   useEffect(() => {
@@ -41,7 +44,7 @@ function App() {
     <div className="App">
       <Nav />
       <div className="boardsContainer">
-        {boardNames.map((board, index) => <Board key={index} id={index} name={board} tasks={tasks} createTask={createTask} dismiss={dismiss} />)}
+        {boardNames.map((board, index) => <Board key={index} id={index} name={board} tasks={tasks} createTask={createTask} deleteTask={deleteTask} />)}
       </div>
     </div>
   );

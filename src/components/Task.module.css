@@ -1,4 +1,5 @@
 .taskContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin: 8px;
@@ -28,3 +29,24 @@ input {
 small {
   font-size: 10px;
 }
+
+.x {
+	position: absolute;
+  right: 5px;
+	width: 10px;
+	height: 10px;
+	background-color: #ff5248;
+	border-radius: 50%;
+}
+.x::before {
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.x::after {
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.x:hover { cursor: pointer; }
+.x:hover::before, .x:hover::after { display: block; }
