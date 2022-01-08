@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import style from './Board.module.css';
-import Task from './Task.tsx';
+import Task from './Task';
 
 export default function Board({ id, name, tasks, createTask, dismiss }) {
   const [ create, setCreate ] = useState(false);
