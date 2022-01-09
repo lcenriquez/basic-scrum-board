@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "basic-scrum-board"
-  }
+    "default": "basic-scrum-board",
+    "production": "basic-scrum-board"
+  },
+  "targets": {}
 }
