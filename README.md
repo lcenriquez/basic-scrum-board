@@ -6,7 +6,7 @@ This app allows you to manage tasks using boards such as Backlog, To do, In proc
 
 ## Live preview
 
-Live preview link will be here soon.
+You can try this app [here.](https://basic-scrum-board.web.app/)
 
 ## Available scripts
 
