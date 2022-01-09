@@ -2,7 +2,7 @@ import Nav from '../components/Nav';
 import Board from '../components/Board';
 import { useEffect, useState } from 'react';
 import { db } from '../firebase';
-import { collection, addDoc, deleteDoc, doc, query, onSnapshot } from 'firebase/firestore'
+import { collection, addDoc, updateDoc, deleteDoc, doc, query, onSnapshot } from 'firebase/firestore'
 import './App.css';
 
 function App() {
@@ -31,9 +31,15 @@ function App() {
     });
   }
 
+  async function updateTask(id, boardId = null) {
+    const taskRef = doc(db, "tasks", id);
+    if(boardId !== null) await updateDoc(taskRef, {boardId});
+  }
+
   async function deleteTask(id) {
-    alert(id);
-    await deleteDoc(doc(db, "tasks", id));
+    if (window.confirm("Do you really want to delete this task?")) {
+      await deleteDoc(doc(db, "tasks", id));
+    }
   }
 
   useEffect(() => {
@@ -44,7 +50,7 @@ function App() {
     <div className="App">
       <Nav />
       <div className="boardsContainer">
-        {boardNames.map((board, index) => <Board key={index} id={index} name={board} tasks={tasks} createTask={createTask} deleteTask={deleteTask} />)}
+        {boardNames.map((board, index) => <Board key={index} id={index} name={board} tasks={tasks} createTask={createTask} updateTask={updateTask} deleteTask={deleteTask} />)}
       </div>
     </div>
   );
